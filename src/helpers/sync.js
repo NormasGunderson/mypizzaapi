@@ -1,5 +1,5 @@
 / The selected code within the open file is an asynchronous function that synchronizes data in a MongoDB database for a pizza ordering system.The function is designed to create example data for users, toppings, pizzas, and orders.
-
+//connention to the db
 //     Here's a breakdown of the code:
 
 // 1.

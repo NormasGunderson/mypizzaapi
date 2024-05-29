@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
 
     req.isLogin = false
     req.user = null
+    //work only with api calls
     jwt.verify(accessToken, process.env.ACCESS_KEY, function (err, userData) {
         if (userData && userData.isActive) {
             req.isLogin = true

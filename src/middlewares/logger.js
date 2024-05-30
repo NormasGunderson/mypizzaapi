@@ -8,7 +8,7 @@ const now = new Date()
 const today = now.toISOString().split('T')[0]
 
 module.exports = morgan('combined', {
-    stream: fs.createWriteStream(`./logs/${today}.log`, { flags: 'a+'})
+    stream: fs.createWriteStream(`./logs/${today}.log`, { flags: 'a+' })
 })
 
 //This is a Node.js module that sets up a logging mechanism using the Morgan middleware. Morgan is a HTTP request logger middleware for Node.js applications.

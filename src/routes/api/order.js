@@ -12,12 +12,12 @@ router.router('/')
     .post(order.create)
 
 router.route('/:id')
-   .get(order.read)
-   .put(order.update)
-   .patch(order.update)
-   .delete(permission.isAdmin, order.delete)
+    .get(order.read)
+    .put(order.update)
+    .patch(order.update)
+    .delete(permission.isAdmin, order.delete)
 
-module.exports = router  
+module.exports = router
 
 //This is part of a Node.js Express application's routing configuration for managing orders. It sets up routes for the '/order' endpoint and applies middleware for authentication and authorization.
 

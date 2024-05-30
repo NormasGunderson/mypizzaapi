@@ -1,26 +1,25 @@
-'use strict'
+"use strict"
+// $ npm i jsonwebtoken
+// setToken(userData:object, isRefresh?:boolean):
 
 const jwt = require('jsonwebtoken')
 
-module.exports = function ( userData, isRefresh = false) {
+module.exports = function (userData, isRefresh = false) {
 
     const data = {
         access: userData.toJSON(),
         refresh: { _id: userData._id, password: userData.password },
         shortExpiresIn: '30m',
-        longExpiresIn: '30d'
+        longExpiresIn: '3d',
     }
 
     return {
-        access: jwt.sign(data.access, process.env.ACCESS_KEY,  { expiresIn: data.shortExpiresIn }), 
+        access: jwt.sign(data.access, process.env.ACCESS_KEY, { expiresIn: data.shortExpiresIn }),
         refresh: (isRefresh ? undefined : jwt.sign(data.refresh, process.env.REFRESH_KEY, { expiresIn: data.longExpiresIn }))
     }
-
 }
 
-//The selected code snippet is a function that generates JSON Web Tokens (JWTs) for access and refresh tokens. The function takes two parameters: userData, which is an object containing user information, and isRefresh, which is an optional boolean flag indicating whether the token is a refresh token.
-
-// Here's a breakdown of the code:
+//This is a function that generates JSON Web Tokens (JWTs) for access and refresh tokens. The function takes two parameters: userData, which is an object containing user information, and isRefresh, which is an optional boolean flag indicating whether the token is a refresh token.
 
 // 1.
 // The function begins by requiring the jsonwebtoken module, which provides functions for working with JWTs.

@@ -8,9 +8,8 @@ const crypto = require('node:crypto'),
     encType = 'sha512';
 
 module.exports = function (password) {
-    return crypto.pbkdf2(password, keyCode, loopCount, charCount, encType).toString ('hex')
+    return crypto.pbkdf2Sync(password, keyCode, loopCount, charCount, encType).toString('hex')
 }
-
 
 // The selected code snippet is an export of a function that uses the crypto module in Node.js to perform password encryption using the PBKDF2 (Password - Based Key Derivation Function 2) algorithm.
 

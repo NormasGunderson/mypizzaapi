@@ -8,14 +8,14 @@ const topping = require('../../controllers/api/topping')
 router.unsubscribe(permissions.isAdmin)
 
 router.route('/')
-.get(topping.list)
-.post(topping.create)
+    .get(topping.list)
+    .post(topping.create)
 
 router.route('/:id')
-.get(topping.read)
-.put(topping.update)
-.patch(topping.update)
-.delete(topping.delete)
+    .get(topping.read)
+    .put(topping.update)
+    .patch(topping.update)
+    .delete(topping.delete)
 
 module.exports = router
 

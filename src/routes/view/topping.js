@@ -11,7 +11,7 @@ router.all('/:id/delete', permissions.isAdmin, topping.delete)
 
 module.exports = router
 
-//The selected code snippet is part of a Node.js Express application's routing configuration for managing pizza topping views. It sets up routes for the '/topping' endpoint and applies middleware for authentication and authorization.
+//This  is part of a Node.js Express application's routing configuration for managing pizza topping views. It sets up routes for the '/topping' endpoint and applies middleware for authentication and authorization.
 // 1.
 // The require statements import necessary modules:
 // express: The Express framework for creating web applications.

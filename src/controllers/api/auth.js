@@ -1,7 +1,5 @@
 "use strict"
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
+
 // Auth Controller:
 
 const jwt = require('jsonwebtoken')
@@ -99,16 +97,16 @@ module.exports = {
                 }
             }
             */
-           
-           const refreshToken = req.body?.token?.refresh
-           /* how the previews line work with optional chaining operator ?.
-           req.body is an object. If req.body is null or undefined, the entire expression evaluates to undefined.
-           Otherwise, it checks if req.body.token exists. If req.body.token is null or undefined, the expression evaluates to undefined.
-           Otherwise, it checks if req.body.token.refresh exists.
-           If req.body.token.refresh is null or undefined, the final result is undefined.
-           Otherwise, it assigns the value of req.body.token.refresh to the refreshToken variable.
-           This way, you avoid potential errors if any part of the chain is missing or nullish.
-           */
+
+        const refreshToken = req.body?.token?.refresh
+        /* how the previews line work with optional chaining operator ?.
+        req.body is an object. If req.body is null or undefined, the entire expression evaluates to undefined.
+        Otherwise, it checks if req.body.token exists. If req.body.token is null or undefined, the expression evaluates to undefined.
+        Otherwise, it checks if req.body.token.refresh exists.
+        If req.body.token.refresh is null or undefined, the final result is undefined.
+        Otherwise, it assigns the value of req.body.token.refresh to the refreshToken variable.
+        This way, you avoid potential errors if any part of the chain is missing or nullish.
+        */
 
         if (refreshToken) {
 

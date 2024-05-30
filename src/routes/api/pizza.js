@@ -8,12 +8,12 @@ const pizza = require('../../controllers/api/pizza')
 router.route('/')
     .get(pizza.list)
     .post(permissions.isAdmin, pizza.create)
-    
+
 router.route('/:id')
-.get(pizza.read)
-.put(permissions.isAdmin, pizza.update)
-.patch(permissions.isAdmin, pizza.update)
-.delete(permissions.isAdmin, pizza.delete)
+    .get(pizza.read)
+    .put(permissions.isAdmin, pizza.update)
+    .patch(permissions.isAdmin, pizza.update)
+    .delete(permissions.isAdmin, pizza.delete)
 
 router.put('/:is/pushToppings', permissions.isAdmin, pizza.pushToppings)
 router.put('/:id/pullToppings', permissions.isAdmin, pizza.pullToppings)

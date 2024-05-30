@@ -17,7 +17,7 @@ dbConnection()
 const ejs = require('ejs')
 ejs.openDelimiter = '{'
 ejs.closeDelimiter = '}'
-//! do i need to open a ./public/views folder
+
 app.set('views', './public')
 app.set('view engine', 'ejs')
 

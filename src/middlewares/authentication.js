@@ -1,25 +1,26 @@
-'use strict'
 
-const jwt = require('jsonwebtoken')
 module.exports = (req, res, next) => {
-    const auth = req.headers?.authorization
+    // const accessToken = req.headers?.authorization.replaceAll('Bearer ')
+    const auth = req.headers?.authorization; // Bearer ...token...
+    const accessToken = auth ? auth.split(' ')[1] : null; // ['Bearer', '...token...']
 
-    const accessToken = auth ? auth.split(' ')[1] : null
+    req.isLogin = false;
+    req.user = null;
 
-    req.isLogin = false
-    req.user = null
-    //work only with api calls
     jwt.verify(accessToken, process.env.ACCESS_KEY, function (err, userData) {
         if (userData && userData.isActive) {
-            req.isLogin = true
-            req.user = userData
+            req.isLogin = true;
+            req.user = userData;
         }
-    })
+    });
 
-    res.locals.user = req.session?.user
-
-    next()
-}
+    // FOR TEMPLATES: Check user from session and set to locals:
+    // Global variables for templates:
+    res.locals.user = req.session?.user;
+    console.log('locals...', res.locals);
+    console.log('user.... ', res.user);
+    next();
+};
 
 //The selected code is an Express middleware function that handles authentication and populates user-related data on the request object. Here's a breakdown of the code:
 
